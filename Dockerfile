@@ -17,6 +17,7 @@ VOLUME /etc/stunnel
 CMD set -x; \
     echo -e '\xef\xbb\xbf; BOM composed of non printable characters. It is here, before the semicolon!' > /stunnel.conf \
  && echo 'foreground = yes' >> /stunnel.conf \
- && cat /etc/stunnel/stunnel.conf >> /stunnel.conf \
+ && echo 'include = /etc/stunnel/conf.d' >> /stunnel.conf \
  && cat /stunnel.conf \
  && /usr/bin/stunnel /stunnel.conf
+
